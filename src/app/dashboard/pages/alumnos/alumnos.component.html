@@ -1,0 +1,89 @@
+<div class="mb-3">
+  <button (click)="crearAlumno()" color="primary" mat-flat-button>
+    <mat-icon>add</mat-icon>
+    Agregar Alumno
+  </button>
+</div>
+
+<mat-form-field class="col-md-6">
+  <mat-label>Filtrar por</mat-label>
+  <input
+    matInput
+    (keyup)="aplicarFiltros($event)"
+    placeholder="Ingrese el dato a filtrar"
+    #input
+  />
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource">
+  <!-- Legajo -->
+  <ng-container matColumnDef="id">
+    <th [appFontSize]="20" mat-header-cell *matHeaderCellDef>Legajo</th>
+    <td mat-cell *matCellDef="let alumno">{{ alumno.id }}</td>
+  </ng-container>
+
+  <!-- Nombre Completo -->
+  <ng-container matColumnDef="nombreCompleto">
+    <th [appFontSize]="20" mat-header-cell *matHeaderCellDef>
+      Nombre completo
+    </th>
+    <td mat-cell *matCellDef="let alumno">
+      {{ alumno | nombreCompleto : "mayuscula" }}
+    </td>
+  </ng-container>
+
+  <!-- Fecha de Nacimiento -->
+  <ng-container matColumnDef="fecha_nacimiento">
+    <th [appFontSize]="20" mat-header-cell *matHeaderCellDef>
+      Fecha de nacimiento
+    </th>
+    <td mat-cell *matCellDef="let alumno">
+      {{ alumno.fecha_nacimiento | date : "dd/MM/YYYY" }}
+    </td>
+  </ng-container>
+
+  <!-- Email -->
+  <ng-container matColumnDef="email">
+    <th [appFontSize]="20" mat-header-cell *matHeaderCellDef>Correo</th>
+    <td mat-cell *matCellDef="let alumno">{{ alumno.email }}</td>
+  </ng-container>
+
+  <!-- Detalle Column -->
+  <ng-container matColumnDef="ver_detalle">
+    <th [appFontSize]="20" mat-header-cell *matHeaderCellDef>Detalle</th>
+    <td mat-cell *matCellDef="let alumno">
+      <button mat-icon-button  (click)="irAlDetalle(alumno.id)">
+        <mat-icon>visibility</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <!-- Editar Column -->
+  <ng-container matColumnDef="editar">
+    <th [appFontSize]="20" mat-header-cell *matHeaderCellDef>Editar</th>
+    <td mat-cell *matCellDef="let alumno">
+      <button mat-icon-button (click)="editarAlumno(alumno)" >
+        <mat-icon>edit</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <!-- Boton eliminar -->
+  <ng-container matColumnDef="eliminar">
+    <th [appFontSize]="20" mat-header-cell *matHeaderCellDef>Eliminar</th>
+    <td mat-cell *matCellDef="let row">
+      <button
+        (click)="borrarAlumno(row)"
+        mat-icon-button
+        class="delete-icon"
+        aria-label="delete icon-button"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

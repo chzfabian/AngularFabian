@@ -1,0 +1,63 @@
+<mat-drawer-container class="dashboard-container" autosize>
+
+  <!-- SIDEBAR -->
+  <mat-drawer #drawer class="dashboard-sidenav" mode="side">
+
+    <img width="50" height="50" src="../../assets/img/avatar.svg">
+    
+    <p>{{ (authUser$ | async)?.nombre }}</p>
+    <p>{{ (authUser$ | async)?.email }}</p>
+
+    <mat-nav-list>
+      <a
+        [routerLink]="link.path"
+        mat-list-item
+        *ngFor="let link of links"
+      >
+        <mat-icon *ngIf="link.icon">{{ link.icon }}</mat-icon> {{ link.title }}
+      </a>
+      <a
+        (click)="logout()"
+        mat-list-item
+      >
+        Cerrar sesión
+      </a>
+    </mat-nav-list>
+
+  </mat-drawer>
+
+  <!--Contenedor-->
+  <div class="dashboard-sidenav-content">
+    <!--Toolbar-->
+    <mat-toolbar color="primary">
+      <button
+        (click)="drawer.toggle()"
+        mat-icon-button
+        class="dashboard-icon"
+        aria-label="dashboard icon-button with menu icon"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span> 3PF - Gruppo </span>
+      <span class="dashboard-spacer"></span>
+      <button
+        mat-icon-button
+        class="dashboard-icon favorite-icon"
+        aria-label="dashboard icon-button with heart icon"
+      >
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        class="dashboard-icon"
+        aria-label="dashboard icon-button with bolt icon"
+      >
+        <mat-icon>bolt</mat-icon>
+      </button>
+    </mat-toolbar>
+    <!--Paginas-->
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</mat-drawer-container>

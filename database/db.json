@@ -1,0 +1,112 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "nombre": "Reina",
+      "apellido": "Diaz",
+      "email": "admin@mail.com",
+      "password": "123456",
+      "token": "SzUmekQjkKpDzYdJ9PnBcx7H8PEvTqZcfTifhQfg",
+      "role": "admin"
+    },
+    {
+      "id": "2",
+      "nombre": "Lucas",
+      "apellido": "Pettoli",
+      "email": "test@mail.com",
+      "password": "123456",
+      "token": "Rmy8UP3EnFbLMM7kZxN3pdeL44wmDYCSGYRiMEFm",
+      "role": "user"
+    },
+    {
+      "id": "48f8",
+      "headers": {
+        "normalizedNames": {},
+        "lazyUpdate": null
+      }
+    },
+    {
+      "id": "97a5",
+      "headers": {
+        "normalizedNames": {},
+        "lazyUpdate": null
+      }
+    },
+    {
+      "id": "6ae3",
+      "params": {
+        "email": "admin@mail.com",
+        "password": "123456"
+      }
+    },
+    {
+      "id": "ee07",
+      "params": {
+        "email": "admin@mail.com",
+        "password": "123456"
+      }
+    },
+    {
+      "id": "ecda",
+      "params": {
+        "email": "admin",
+        "password": "adin123"
+      }
+    },
+    {
+      "id": "8897",
+      "params": {
+        "email": "admin@mail.com",
+        "password": "123456"
+      }
+    },
+    {
+      "id": "e09c",
+      "params": {
+        "email": "admin@mail.com",
+        "password": "123456"
+      }
+    },
+    {
+      "id": "a4fd",
+      "params": {
+        "email": "admin@mail.com",
+        "password": "123456"
+      }
+    },
+    {
+      "id": "897c",
+      "params": {
+        "email": "admin@mail.com",
+        "password": "123456"
+      }
+    },
+    {
+      "id": "1fcd",
+      "params": {
+        "email": "admin@mail.com",
+        "password": "admin123456"
+      }
+    }
+  ],
+  "cursos": [
+    {
+      "id": "1",
+      "nombre": "Angular",
+      "fecha_fin": "2024-06-02T01:27:59.631Z",
+      "fecha_inicio": "2024-02-10T01:27:59.631Z"
+    },
+    {
+      "id": "2",
+      "nombre": "Javascript",
+      "fecha_fin": "2024-06-02T01:27:59.631Z",
+      "fecha_inicio": "2024-05-10T01:27:59.631Z"
+    },
+    {
+      "id": "3",
+      "nombre": "Desarrollo Web",
+      "fecha_fin": "2024-08-02T01:27:59.631Z",
+      "fecha_inicio": "2024-03-10T01:27:59.631Z"
+    }
+  ]
+}

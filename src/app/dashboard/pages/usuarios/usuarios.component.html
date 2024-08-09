@@ -1,0 +1,81 @@
+<div class="mb-3">
+  <button (click)="crearUsuario()" color="primary" mat-flat-button>
+    <mat-icon>add</mat-icon>
+    Agregar Usuario
+  </button>
+</div>
+
+<mat-form-field class="col-md-6">
+  <mat-label>Filtrar por</mat-label>
+  <input
+    matInput
+    (keyup)="aplicarFiltros($event)"
+    placeholder="Ingrese el dato a filtrar"
+    #input
+  />
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource">
+  <!-- Id Column -->
+  <ng-container matColumnDef="id">
+    <th [appFontSize]="20" mat-header-cell *matHeaderCellDef>Codigo</th>
+    <td mat-cell *matCellDef="let usuario">{{ usuario.id }}</td>
+  </ng-container>
+
+  <!-- Nombre Column -->
+  <ng-container matColumnDef="nombre">
+    <th [appFontSize]="20" mat-header-cell *matHeaderCellDef>Nombre</th>
+    <td mat-cell *matCellDef="let usuario">
+      {{ usuario.nombre }}
+    </td>
+  </ng-container>
+
+  <!-- Apellido Column -->
+  <ng-container matColumnDef="apellido">
+    <th [appFontSize]="20" mat-header-cell *matHeaderCellDef>Apellido</th>
+    <td mat-cell *matCellDef="let usuario">
+      {{ usuario.apellido }}
+    </td>
+  </ng-container>
+
+  <!-- Email Column -->
+  <ng-container matColumnDef="email">
+    <th [appFontSize]="20" mat-header-cell *matHeaderCellDef>Email</th>
+    <td mat-cell *matCellDef="let usuario">
+      {{ usuario.email }}
+    </td>
+  </ng-container>
+
+  <!-- Detalle Column -->
+  <ng-container matColumnDef="detalle">
+    <th [appFontSize]="20" mat-header-cell *matHeaderCellDef>Detalle</th>
+    <td mat-cell *matCellDef="let usuario">
+      <button mat-icon-button (click)="irAlDetalle(usuario.id)">
+        <mat-icon>visibility</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <!-- Editar Column -->
+  <ng-container matColumnDef="editar">
+    <th [appFontSize]="20" mat-header-cell *matHeaderCellDef>Editar</th>
+    <td mat-cell *matCellDef="let usuario">
+      <button mat-icon-button (click)="editarUsuario(usuario)">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <!-- Eliminar Column -->
+  <ng-container matColumnDef="eliminar">
+    <th [appFontSize]="20" mat-header-cell *matHeaderCellDef>Eliminar</th>
+    <td mat-cell *matCellDef="let usuario">
+      <button mat-icon-button (click)="eliminarUsuario(usuario)">
+        <mat-icon>close</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

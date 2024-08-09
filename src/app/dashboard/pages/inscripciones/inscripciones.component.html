@@ -1,0 +1,52 @@
+<div class="mb-3">
+  <button (click)="crearInscripciones()" color="primary" mat-flat-button>
+    <mat-icon>add</mat-icon>
+    Agregar Inscripcion
+  </button>
+</div>
+
+<mat-form-field class="w-full">
+  <mat-label>Filtrar por</mat-label>
+  <input matInput placeholder="Inscripcion" #input>
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource">
+  
+  <ng-container matColumnDef="id_curso">
+    <th [appFontSize]="20" mat-header-cell *matHeaderCellDef>Codigo</th>
+    <td mat-cell *matCellDef="let inscripcion"> {{ inscripcion.curso.id }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="nombre_curso">
+    <th [appFontSize]="20" mat-header-cell *matHeaderCellDef>Curso</th>
+    <td mat-cell *matCellDef="let inscripcion"> {{ inscripcion.curso.nombre }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="id_alumno">
+    <th [appFontSize]="20" mat-header-cell *matHeaderCellDef>Legajo</th>
+    <td mat-cell *matCellDef="let inscripcion"> {{ inscripcion.alumno.id }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="nombre_alumno">
+    <th [appFontSize]="20" mat-header-cell *matHeaderCellDef>Nombre Alumno</th>
+    <td mat-cell *matCellDef="let inscripcion"> {{ inscripcion.alumno.nombre }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="apellido_alumno">
+    <th [appFontSize]="20" mat-header-cell *matHeaderCellDef>Apellido Alumno</th>
+    <td mat-cell *matCellDef="let inscripcion"> {{ inscripcion.alumno.apellido }} </td>
+  </ng-container> 
+
+    <!-- Eliminar Column -->
+    <ng-container matColumnDef="eliminar">
+      <th [appFontSize]="20" mat-header-cell *matHeaderCellDef>Eliminar</th>
+      <td mat-cell *matCellDef="let inscripcion">
+        <button mat-icon-button (click)="eliminarInscripcion(inscripcion)" >
+          <mat-icon>close</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
